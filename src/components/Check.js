@@ -9,7 +9,7 @@ const Check = ({ data, setShowCheck }) => {
     }, 100);
     setTimeout(() => {
       setShowCheck(false);
-    }, 101);
+    }, 1000);
   }, []);
   return (
     <div className="container check">
