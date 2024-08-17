@@ -63,11 +63,10 @@ function App() {
 
   const handlePrint = async () => {
     setShowCheck(true);
-    // window.print();
   };
 
   return showCheck ? (
-    <Check data={products} />
+    <Check data={products} setShowCheck={setShowCheck} />
   ) : (
     <div className="App">
       <div className="card-list container">

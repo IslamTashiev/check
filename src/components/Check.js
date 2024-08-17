@@ -2,11 +2,14 @@ import React, { useEffect } from "react";
 import Table from "./Table";
 import qrCode from "../assets/plov_alamedin.svg";
 
-const Check = ({ data }) => {
+const Check = ({ data, setShowCheck }) => {
   useEffect(() => {
     setTimeout(() => {
       window.print();
-    }, 1);
+    }, 100);
+    setTimeout(() => {
+      setShowCheck(false);
+    }, 101);
   }, []);
   return (
     <div className="container check">
@@ -24,7 +27,7 @@ const Check = ({ data }) => {
         <p>Итого:</p>
         <p>19000сом</p>
       </div>
-      <div style={{ textAlign: "center", marginTop: 100 }}>
+      <div style={{ textAlign: "center", marginTop: "80px" }}>
         <object type="image/svg+xml" data={qrCode}></object>
       </div>
     </div>

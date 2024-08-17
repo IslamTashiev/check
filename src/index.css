@@ -181,6 +181,17 @@ body {
   gap: 10px;
   align-items: end;
 }
-@page {
-  size: portrait; /* Можно указать landscape, если нужна альбомная ориентация */
+.footer-table {
+  max-height: 250px;
+  overflow: auto;
+  position: relative;
 }
+/* .footer-table::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(249, 249, 249, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  left: 0;
+  bottom: 0;
+} */

@@ -6,7 +6,9 @@ const Footer = ({ products, handlePrint }) => {
   return (
     <div className="footer">
       <div className="container">
-        <Table data={products} />
+        <div className="footer-table">
+          <Table data={products} />
+        </div>
 
         <button onClick={handlePrint} className="ready-button">
           Готово
