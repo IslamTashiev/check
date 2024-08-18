@@ -23,9 +23,9 @@ const Check = ({ data, setShowCheck }) => {
     setTimeout(() => {
       window.print();
     }, 1);
-    setTimeout(() => {
-      setShowCheck(false);
-    }, 2);
+    // setTimeout(() => {
+    //   setShowCheck(false);
+    // }, 2);
   }, []);
   return (
     <div className="container check" id="check">
