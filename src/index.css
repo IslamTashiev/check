@@ -15,7 +15,7 @@ body {
   background: #e2e2e2;
 }
 .container {
-  padding: 12px;
+  padding: 24px;
 }
 .line {
   background: #000;
@@ -84,7 +84,7 @@ body {
   border-radius: 10px;
   padding: 4px;
   cursor: pointer;
-  max-width: calc(100vw / 3 - 14px);
+  max-width: calc(100vw / 3 - 24px);
   width: 100%;
 }
 .card-item.added {
@@ -186,15 +186,6 @@ body {
   overflow: auto;
   position: relative;
 }
-/* .footer-table::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(0deg, rgba(2, 0, 36, 1) 0%, rgba(249, 249, 249, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  left: 0;
-  bottom: 0;
-} */
 @page {
   size: portrait;
 }
