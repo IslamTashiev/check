@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
@@ -63,6 +63,12 @@ function App() {
   const handlePrint = async () => {
     setShowCheck(true);
   };
+
+  useEffect(() => {
+    fetch("http://localhost:5500/products")
+      .then((data) => data.json())
+      .then((res) => console.log(res));
+  }, []);
 
   return showCheck ? (
     <Check data={products} setShowCheck={setShowCheck} />
