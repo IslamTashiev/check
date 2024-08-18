@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import Table from "./Table";
 import Check from "./Check";
 
-const Footer = ({ products, handlePrint }) => {
+const Footer = ({ products, handlePrint, setCheckProducts }) => {
+  const handleReset = () => {
+    window.confirm("Вы действительно хотите очистить чек?");
+    setCheckProducts([]);
+  };
+
   return (
     <div className="footer">
       <div className="container">
@@ -10,9 +15,14 @@ const Footer = ({ products, handlePrint }) => {
           <Table data={products} />
         </div>
 
-        <button onClick={handlePrint} className="ready-button">
+        <button disabled={products.length <= 0} onClick={handlePrint} className="ready-button">
           Готово
         </button>
+        {products.length > 0 && (
+          <button onClick={handleReset} className="ready-button reset">
+            Сбросить
+          </button>
+        )}
       </div>
     </div>
   );

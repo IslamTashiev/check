@@ -54,7 +54,7 @@ function App() {
       )}
       {showCreateModal && <CreateProductModal setShowCreateModal={setShowCreateModal} />}
 
-      <Footer products={checkProducts} handlePrint={handlePrint} />
+      <Footer products={checkProducts} handlePrint={handlePrint} setCheckProducts={setCheckProducts} />
     </div>
   );
 }

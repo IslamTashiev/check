@@ -172,6 +172,11 @@ body {
   background: #fff;
   border-radius: 10px;
 }
+.ready-button.reset {
+  background: transparent;
+  border: #67a4ff 1px solid;
+  color: #000;
+}
 .ready-button {
   background: #67a4ff;
   width: 100%;
