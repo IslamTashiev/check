@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Card from "./components/Card";
 import Modal from "./components/Modal";
-import Table from "./components/Table";
 import Footer from "./components/Footer";
 import Check from "./components/Check";
 
