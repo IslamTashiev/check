@@ -109,6 +109,7 @@ body {
   height: 100px;
   border-radius: 7px;
   object-fit: cover;
+  width: calc(100vw / 3 - 32px);
 }
 .moadl-card-image {
   width: 120px;
