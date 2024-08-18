@@ -2,26 +2,27 @@ import React from "react";
 
 const Table = ({ data }) => {
   return (
-    <table className="main-table">
-      <thead className="main-thead">
-        <tr>
-          <th>Название</th>
-          <th>Кол-во.</th>
-          <th>Цена</th>
-          <th>Сумма</th>
-        </tr>
-      </thead>
-      <tbody className="main-tbody">
+    <div>
+      <div
+        style={{ display: "flex", backgroundColor: "#67a4ff2a", padding: "12px", borderRadius: "10px 10px 4px 4px " }}
+      >
+        <div style={{ width: "40%", fontWeight: 600 }}>Название</div>
+        <div style={{ width: "20%", textAlign: "center", fontWeight: 600 }}>Кол-во.</div>
+        <div style={{ width: "20%", textAlign: "center", fontWeight: 600 }}>Цена</div>
+        <div style={{ width: "20%", textAlign: "center", fontWeight: 600 }}>Сумма</div>
+      </div>
+
+      <div>
         {data.map((item) => (
-          <tr key={item.id}>
-            <td style={{ width: "40%" }}>{item.title}</td>
-            <td style={{ textAlign: "center" }}>{item.count}</td>
-            <td style={{ textAlign: "center" }}>{item.price}</td>
-            <td style={{ textAlign: "center" }}>{item.sum}</td>
-          </tr>
+          <div key={item.id} style={{ display: "flex", padding: 12, borderBottom: "1px solid #ddd" }}>
+            <div style={{ width: "40%", textAlign: "start" }}>{item.title}</div>
+            <div style={{ width: "20%", textAlign: "center" }}>{item.count}</div>
+            <div style={{ width: "20%", textAlign: "center" }}>{item.price}</div>
+            <div style={{ width: "20%", textAlign: "center" }}>{item.sum}</div>
+          </div>
         ))}
-      </tbody>
-    </table>
+      </div>
+    </div>
   );
 };
 
