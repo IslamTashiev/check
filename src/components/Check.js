@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "./Table";
-import qrCode from "../assets/plov_alamedin.svg";
+// import qrCode from "../assets/plov_alamedin.svg";
+import qrCode from "../assets/mbank_qr.png";
 
 const Check = ({ data, setShowCheck }) => {
   const [totalSum, setTotalSum] = useState(0);
@@ -21,10 +22,10 @@ const Check = ({ data, setShowCheck }) => {
     setTotalSum(res.map((el) => el.sum).reduce((acc, el) => acc + el, 0));
     setTimeout(() => {
       window.print();
-    }, 100);
-    // setTimeout(() => {
-    //   setShowCheck(false);
-    // }, 1000);
+    }, 1);
+    setTimeout(() => {
+      setShowCheck(false);
+    }, 2);
   }, []);
   return (
     <div className="container check" id="check">
@@ -43,7 +44,7 @@ const Check = ({ data, setShowCheck }) => {
         <p>{totalSum}сом</p>
       </div>
       <div style={{ textAlign: "center", marginTop: "80px" }}>
-        <object type="image/svg+xml" data={qrCode}></object>
+        <img src={qrCode} />
       </div>
     </div>
   );
