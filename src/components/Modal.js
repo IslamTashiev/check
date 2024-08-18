@@ -9,10 +9,10 @@ const Modal = ({ selectedCard, setSelectedCard, setProducts }) => {
   const [tableData, setTableData] = useState([]);
 
   const increaseCount = () => {
-    setCount((prevState) => +prevState.split(unitOfMeasurement)[0] + 0.5 + unitOfMeasurement);
+    setCount((prevState) => +prevState.split(unitOfMeasurement)[0] + 1 + unitOfMeasurement);
   };
   const decreaseCount = () => {
-    setCount((prevState) => +prevState.split(unitOfMeasurement)[0] - 0.5 + unitOfMeasurement);
+    setCount((prevState) => +prevState.split(unitOfMeasurement)[0] - 1 + unitOfMeasurement);
   };
   const onCloseModal = () => {
     setSelectedCard(null);
@@ -58,7 +58,7 @@ const Modal = ({ selectedCard, setSelectedCard, setProducts }) => {
               <button className="counter-button" onClick={decreaseCount} disabled={parseInt(newCount) <= 0}>
                 -
               </button>
-              <input className="input" type="text" value={newCount} />
+              <input className="input" type="text" value={newCount} onChange={(e) => setCount(e.target.value)} />
               <button className="counter-button" onClick={increaseCount} disabled={parseInt(newCount) >= 100}>
                 +
               </button>

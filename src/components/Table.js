@@ -16,9 +16,15 @@ const Table = ({ data }) => {
         {data.map((item) => (
           <div key={item.id} style={{ display: "flex", padding: 12, borderBottom: "1px solid #ddd" }}>
             <div style={{ width: "40%", textAlign: "start" }}>{item.title}</div>
-            <div style={{ width: "20%", textAlign: "center" }}>{item.count}</div>
-            <div style={{ width: "20%", textAlign: "center" }}>{item.price}</div>
-            <div style={{ width: "20%", textAlign: "center" }}>{item.sum}</div>
+            <div style={{ width: "20%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {item.count}
+            </div>
+            <div style={{ width: "20%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {item.price}
+            </div>
+            <div style={{ width: "20%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              {item.sum}
+            </div>
           </div>
         ))}
       </div>

@@ -3,6 +3,7 @@ import Card from "./components/Card";
 import Modal from "./components/Modal";
 import Footer from "./components/Footer";
 import Check from "./components/Check";
+import CreateProductModal from "./components/CreateProductModal";
 
 const arr = [
   {
@@ -57,30 +58,36 @@ const arr = [
 
 function App() {
   const [selectedCard, setSelectedCard] = useState(null);
-  const [products, setProducts] = useState([]);
+  const [checkProducts, setCheckProducts] = useState([]);
   const [showCheck, setShowCheck] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [showCreateModal, setShowCreateModal] = useState(false);
 
   const handlePrint = async () => {
     setShowCheck(true);
   };
 
   useEffect(() => {
-    fetch("http://localhost:5500/products")
-      .then((data) => data.json())
-      .then((res) => console.log(res));
-  }, []);
+    const localProducts = localStorage.getItem("products");
+
+    if (!localProducts) {
+      return localStorage.setItem("products", JSON.stringify([]));
+    }
+
+    setProducts(JSON.parse(localProducts));
+  }, [showCreateModal]);
 
   return showCheck ? (
-    <Check data={products} setShowCheck={setShowCheck} />
+    <Check data={checkProducts} setShowCheck={setShowCheck} />
   ) : (
     <div className="App">
       <div className="card-list container">
-        {arr.map((item) => (
+        {products.map((item) => (
           <div key={item.id}>
-            <Card data={item} setSelectedCard={setSelectedCard} products={products} />
+            <Card data={item} setSelectedCard={setSelectedCard} products={checkProducts} />
           </div>
         ))}
-        <div class="card-item add">
+        <div onClick={() => setShowCreateModal(true)} className="card-item add">
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 6.6665V25.3332" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M6.66602 16H25.3327" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -89,10 +96,11 @@ function App() {
       </div>
 
       {selectedCard && (
-        <Modal selectedCard={selectedCard} setSelectedCard={setSelectedCard} setProducts={setProducts} />
+        <Modal selectedCard={selectedCard} setSelectedCard={setSelectedCard} setProducts={setCheckProducts} />
       )}
+      {showCreateModal && <CreateProductModal setShowCreateModal={setShowCreateModal} />}
 
-      <Footer products={products} handlePrint={handlePrint} />
+      <Footer products={checkProducts} handlePrint={handlePrint} />
     </div>
   );
 }
