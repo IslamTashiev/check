@@ -28,7 +28,7 @@ const Check = ({ data, setShowCheck }) => {
     // }, 2);
   }, []);
   return (
-    <div className="container check" id="check">
+    <div className="container check" id="check" onClick={() => setShowCheck(false)}>
       <div className="line"></div>
       <h2 style={{ textAlign: "center" }}>Чайхана “Аламедин”</h2>
       <div className="line"></div>
