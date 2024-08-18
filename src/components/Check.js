@@ -22,7 +22,7 @@ const Check = ({ data, setShowCheck }) => {
     setTotalSum(res.map((el) => el.sum).reduce((acc, el) => acc + el, 0));
     setTimeout(() => {
       window.print();
-    }, 1);
+    }, 1000);
     // setTimeout(() => {
     //   setShowCheck(false);
     // }, 2);

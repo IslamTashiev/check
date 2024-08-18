@@ -30,7 +30,7 @@ const CreateProductModal = ({ setShowCreateModal }) => {
       count: 1,
       price,
       id: new Date(),
-      unitOfMeasurement: "",
+      unitOfMeasurement: " ",
     };
     if (!products) {
       return localStorage.setItem("products", JSON.stringify([newProduct]));

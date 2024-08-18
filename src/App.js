@@ -45,7 +45,12 @@ function App() {
       </div>
 
       {selectedCard && (
-        <Modal selectedCard={selectedCard} setSelectedCard={setSelectedCard} setProducts={setCheckProducts} />
+        <Modal
+          setProducts={setProducts}
+          selectedCard={selectedCard}
+          setSelectedCard={setSelectedCard}
+          setCheckProducts={setCheckProducts}
+        />
       )}
       {showCreateModal && <CreateProductModal setShowCreateModal={setShowCreateModal} />}
 
