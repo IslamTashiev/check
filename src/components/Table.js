@@ -17,7 +17,7 @@ const Table = ({ data }) => {
           <div key={item.id} style={{ display: "flex", padding: 12, borderBottom: "1px solid #ddd" }}>
             <div style={{ width: "40%", textAlign: "start" }}>{item.title}</div>
             <div style={{ width: "20%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              {item.count}
+              {`${item.count ?? ""}${item.unitOfMeasurement ?? ""}`}
             </div>
             <div style={{ width: "20%", display: "flex", alignItems: "center", justifyContent: "center" }}>
               {item.price}

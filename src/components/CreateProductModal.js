@@ -4,6 +4,7 @@ const CreateProductModal = ({ setShowCreateModal }) => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("https://draeger-mo.com/media/products/notfound.png");
+  const [unitOfMeasurement, setUnitOfMeasurement] = useState(" ");
 
   const handleOutsideClick = (e) => {
     if (e.target.className === "modal") {
@@ -22,6 +23,10 @@ const CreateProductModal = ({ setShowCreateModal }) => {
       reader.readAsDataURL(file);
     }
   };
+  const handleSelectUnit = (e) => {
+    const value = e.target.value;
+    setUnitOfMeasurement(value === "Өлчөм" ? " " : value);
+  };
   const saveProductData = () => {
     const products = localStorage.getItem("products");
     const newProduct = {
@@ -30,7 +35,7 @@ const CreateProductModal = ({ setShowCreateModal }) => {
       count: 1,
       price,
       id: new Date(),
-      unitOfMeasurement: " ",
+      unitOfMeasurement,
     };
     if (!products) {
       return localStorage.setItem("products", JSON.stringify([newProduct]));
@@ -70,6 +75,13 @@ const CreateProductModal = ({ setShowCreateModal }) => {
                 value={price}
               />
               <p>сом.</p>
+            </div>
+            <div>
+              <select style={{ color: "#edede" }} className="input" onChange={handleSelectUnit} defaultValue={"Өлчөм"}>
+                <option style={{ background: "#ddd" }}>Өлчөм</option>
+                <option>кг</option>
+                <option>шт</option>
+              </select>
             </div>
           </div>
         </div>
