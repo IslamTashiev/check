@@ -15,7 +15,17 @@ const Table = ({ data }) => {
       <div>
         {data.map((item) => (
           <div key={item.id} style={{ display: "flex", padding: 12, borderBottom: "1px solid #ddd" }}>
-            <div style={{ fontWeight: 400, fontSize: 20, width: "60%", textAlign: "start", display: "flex", gap: 10 }}>
+            <div
+              style={{
+                fontWeight: 400,
+                fontSize: 20,
+                width: "60%",
+                textAlign: "start",
+                display: "flex",
+                gap: 10,
+                alignItems: "center",
+              }}
+            >
               <p>{item.title}</p> <p>{item.count && " x "}</p>{" "}
               <p>{`${item.count ?? ""}${item.unitOfMeasurement ?? ""}`}</p>
             </div>
