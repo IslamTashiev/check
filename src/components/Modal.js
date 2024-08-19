@@ -24,7 +24,7 @@ const Modal = ({ selectedCard, setSelectedCard, setCheckProducts, setProducts })
     }
   };
   const handleDeleteProduct = () => {
-    window.confirm("Вы точно хотите удалить " + title + "?");
+    if (!window.confirm("Вы точно хотите удалить " + title + "?")) return;
     const productsJson = localStorage.getItem("products");
     const products = JSON.parse(productsJson);
     const filteredProducts = products.filter((elem) => elem.id !== id);

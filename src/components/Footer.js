@@ -4,7 +4,7 @@ import Check from "./Check";
 
 const Footer = ({ products, handlePrint, setCheckProducts }) => {
   const handleReset = () => {
-    window.confirm("Вы действительно хотите очистить чек?");
+    if (!window.confirm("Вы действительно хотите очистить чек?")) return;
     setCheckProducts([]);
   };
 
