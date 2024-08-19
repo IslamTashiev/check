@@ -6,9 +6,9 @@ import qrCode from "../assets/mbank_qr.png";
 const Check = ({ data, setShowCheck }) => {
   const [totalSum, setTotalSum] = useState(0);
   const [newData, setNewData] = useState(data);
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
-    // setTotalSum(data.map((el) => el.sum).reduce((acc, el) => acc + el, 0));
     const res = [
       ...data,
       {
@@ -23,9 +23,6 @@ const Check = ({ data, setShowCheck }) => {
     setTimeout(() => {
       window.print();
     }, 1000);
-    // setTimeout(() => {
-    //   setShowCheck(false);
-    // }, 2);
   }, []);
   return (
     <div className="container check" id="check" onClick={() => setShowCheck(false)}>
@@ -33,8 +30,16 @@ const Check = ({ data, setShowCheck }) => {
       <h2 style={{ textAlign: "center" }}>Чайхана “Аламедин”</h2>
       <div className="line"></div>
       <ul className="list">
-        <li>Чек № 433 | 17.08.2024 | 22:31:59</li>
-        <li>Кассир: Ислам Ташиев</li>
+        <li>
+          Чек № 1 | {date.toLocaleDateString("ru-Ru", { day: "2-digit", month: "2-digit", year: "numeric" })} |{" "}
+          {date.toLocaleTimeString("ru-RU", {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false,
+          })}
+        </li>
+        <li>Кассир: Кайыргуль</li>
       </ul>
       <div className="line"></div>
       <Table data={newData} />
@@ -43,8 +48,8 @@ const Check = ({ data, setShowCheck }) => {
         <p>Итого:</p>
         <p>{totalSum}сом</p>
       </div>
-      <div style={{ textAlign: "center", marginTop: "80px" }}>
-        <img src={qrCode} />
+      <div style={{ textAlign: "center", marginTop: 20 }}>
+        <img src={qrCode} style={{ objectFit: "cover", maxWidth: "80%", width: "100%", textAlign: "center" }} />
       </div>
     </div>
   );
