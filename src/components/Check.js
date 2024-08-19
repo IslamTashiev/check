@@ -3,7 +3,7 @@ import Table from "./Table";
 // import qrCode from "../assets/plov_alamedin.svg";
 import qrCode from "../assets/mbank_qr.png";
 
-const Check = ({ data, setShowCheck }) => {
+const Check = ({ data, setShowCheck, setCheckProducts }) => {
   const [totalSum, setTotalSum] = useState(0);
   const [newData, setNewData] = useState(data);
   const [date, setDate] = useState(new Date());
@@ -24,8 +24,14 @@ const Check = ({ data, setShowCheck }) => {
       window.print();
     }, 1000);
   }, []);
+
+  const closeCheckPage = () => {
+    setShowCheck(false);
+    setCheckProducts([]);
+  };
+
   return (
-    <div className="container check" id="check" onClick={() => setShowCheck(false)}>
+    <div className="container check" id="check" onClick={closeCheckPage}>
       <div className="line"></div>
       <h2 style={{ textAlign: "center" }}>Чайхана “Аламедин”</h2>
       <div className="line"></div>

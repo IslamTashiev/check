@@ -27,7 +27,7 @@ function App() {
   }, [showCreateModal]);
 
   return showCheck ? (
-    <Check data={checkProducts} setShowCheck={setShowCheck} />
+    <Check data={checkProducts} setShowCheck={setShowCheck} setCheckProducts={setCheckProducts} />
   ) : (
     <div className="App">
       <div className="card-list container">
